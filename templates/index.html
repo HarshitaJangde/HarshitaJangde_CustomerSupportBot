@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- AI Customer Support Bot Frontend.-->
   <title>AI Support Bot</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
@@ -16,29 +17,37 @@
     </div>
 
   <script>
+    //define function to scroll chat box to bottom when new messages arrive
     function scrollChatToBottom() {
         const chatBox = document.getElementById("chat-box");
         chatBox.scrollTop = chatBox.scrollHeight;
     }
+
+    //send user message to backend and display bot message
     async function sendMessage() {
       let msg = document.getElementById("user-input").value;
-      document.getElementById("chat-box").innerHTML += `<p class="user"><b>You:</b> ${msg}</p>`;
+      document.getElementById("chat-box").innerHTML += `<p class="user"><b>You:</b> ${msg}</p>`; //display user's message
 
+      //send user message to backend
       const response = await fetch("/", {
         method: "POST",
         headers: {"Content-Type": "application/x-www-form-urlencoded"},
         body: `message=${encodeURIComponent(msg)}`
       });
+
+      //get bot response
       const data = await response.json();
-      document.getElementById("chat-box").innerHTML += `<p class="bot"><b>Bot:</b> ${data.response}</p>`;
+      document.getElementById("chat-box").innerHTML += `<p class="bot"><b>Bot:</b> ${data.response}</p>`; //display bot response
+
+      //call function to scroll chatbox 
       scrollChatToBottom();
       
-      document.getElementById("user-input").value = "";
+      document.getElementById("user-input").value = ""; //clear input field
       
     
 
     }
-     // Listen for Spacebar or Enter key
+     // Listen for Enter key to send message without clicking on send button
     document.getElementById("user-input").addEventListener("keydown", function(e) {
       if(e.code === "Enter") {
         e.preventDefault();
