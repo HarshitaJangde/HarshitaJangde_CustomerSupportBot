@@ -12,7 +12,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
 
-# Load cleaned FAQ
+# Load cleaned FAQ 
 faq_df = pd.read_csv("faq_auto.csv")
 answers = faq_df["answer"].tolist()
 questions = faq_df["question"].tolist()
