@@ -91,8 +91,6 @@ python app.py
 Open your browser and go to: http://127.0.0.1:5000
 ```
 
----
-
 3. **Ask a question**
 
 - Type your query in the input box.
