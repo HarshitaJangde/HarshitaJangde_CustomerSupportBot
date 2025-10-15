@@ -1,6 +1,7 @@
 # AI Customer Support Bot
 
-An AI-powered chatbot that answers FAQs using embeddings-based semantic search.
+AI Customer Support Bot is a local AI-powered chatbot that helps users quickly find answers to frequently asked questions. It uses a dataset of customer queries (`twcs.csv`) to generate processed FAQs and embeddings (`faq_auto.csv` and `answer_embeddings.npy`) for semantic search. Users can interact with the bot through a simple web interface built with Flask, where their questions are matched against the FAQ embeddings to provide the most relevant answers in real time.
+
 
 ---
 
@@ -36,6 +37,7 @@ This project implements a local AI customer support bot:
 
 ## Project Structure
 
+```bash
 ai_bot/
 ├── app.py
 ├── requirements.txt
@@ -47,6 +49,7 @@ ai_bot/
 │ └── index.html
 ├── static/
   └── style.css
+```
 
 - **app.py** – main Flask app to run the bot  
 - **faq.csv** – original FAQ file  
